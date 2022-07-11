@@ -6,9 +6,9 @@ Using terraform to deploy WordPress on AWS with a LAMP stack.
 
 Site data is stored inside an RDS database.
 
-Database password securely with Secrets Manager .
+Database password stored securely with Secrets Manager .
 
-Auto Scaling Group used to rovision multiple servers in HA mode.
+Auto Scaling Group used to provision multiple servers in HA mode.
 
 Used user-data to install WordPress on servers
 
