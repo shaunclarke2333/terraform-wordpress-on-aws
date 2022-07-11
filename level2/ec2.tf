@@ -46,6 +46,7 @@ data "template_file" "user_data" {
     username      = module.mysql-rds.db_instance_username
     password      = "${local.main-rds-password}"
     db_host       = module.mysql-rds.db_instance_endpoint
+    unique_keys_salts = var.keys_and_salts
   }
 }
 

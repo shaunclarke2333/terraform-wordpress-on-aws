@@ -9,3 +9,8 @@ variable "key_name" {
   description = "key to connect to main-ec2 resource"
   default     = "main"
 }
+
+variable "keys_and_salts" {
+  description = "Authentication unique keys and salts"
+  sensitive = true
+}
