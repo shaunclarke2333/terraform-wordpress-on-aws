@@ -40,14 +40,14 @@ module "launch-template-sg" {
 }
 
 data "template_file" "user_data" {
- template = "${file("${path.module}/deploy_wordpress_amzlinux.sh.tpl")}"
- vars = {
-   database_name = module.mysql-rds.db_instance_name
-   username = module.mysql-rds.db_instance_username
-   password = "${local.main-rds-password}"
-   db_host = module.mysql-rds.db_instance_endpoint
-   domain = "https://${module.elb_friendly_name.acm_certificate_domain_name_output}"
- }
+  template = file("${path.module}/deploy_wordpress_amzlinux.sh.tpl")
+  vars = {
+    database_name = module.mysql-rds.db_instance_name
+    username      = module.mysql-rds.db_instance_username
+    password      = "${local.main-rds-password}"
+    db_host       = module.mysql-rds.db_instance_endpoint
+    domain        = "https://${module.elb_friendly_name.acm_certificate_domain_name_output}"
+  }
 }
 
 #Module to deploy autoscaling group with launch template and IAM session manager policy
@@ -76,7 +76,7 @@ module "main-autoscaling-group" {
   instance_type   = var.instance_type
   key_name        = "main"
   security_groups = ["${module.launch-template-sg.security_group_id}"]
-  user_data       = "${base64encode(data.template_file.user_data.rendered)}"
+  user_data       = base64encode(data.template_file.user_data.rendered)
 
   tag_specifications = [
     {

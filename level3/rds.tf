@@ -29,5 +29,5 @@ module "rds-security-group" {
 
 module "mysql-rds" {
   source = "terraform-aws-modules/rds/aws"
-  
+
 }

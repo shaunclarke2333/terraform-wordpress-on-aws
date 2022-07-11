@@ -59,9 +59,6 @@ define( 'DB_CHARSET', 'utf8' );
 /** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
 
-define('WP_HOME','${domain}');
-define('WP_SITEURL','${domain}');
-
 //Moved https redirection from the Apache virtual server config to wp-config.php using this snippet.
 if (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false)
        $_SERVER['HTTPS']='on';

@@ -57,9 +57,9 @@ module "main-elb" {
 
   target_groups = [
     {
-      name_prefix      = "main"
-      backend_protocol = "HTTP"
-      backend_port     = 80
+      name_prefix          = "main"
+      backend_protocol     = "HTTP"
+      backend_port         = 80
       deregistration_delay = 10
 
       health_check = {
