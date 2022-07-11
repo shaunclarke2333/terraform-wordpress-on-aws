@@ -46,7 +46,6 @@ data "template_file" "user_data" {
     username      = module.mysql-rds.db_instance_username
     password      = "${local.main-rds-password}"
     db_host       = module.mysql-rds.db_instance_endpoint
-    domain        = "https://${module.elb_friendly_name.acm_certificate_domain_name_output}"
   }
 }
 
