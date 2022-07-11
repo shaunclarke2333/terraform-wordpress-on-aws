@@ -14,6 +14,13 @@ module "alb_443_sg" {
       protocol    = "tcp"
       description = "https to ELB"
       cidr_blocks = "0.0.0.0/0"
+    },
+    {
+      from_port   = 80
+      to_port     = 80
+      protocol    = "tcp"
+      description = "http to ELB"
+      cidr_blocks = "0.0.0.0/0"
     }
   ]
   egress_with_cidr_blocks = [
@@ -53,19 +60,18 @@ module "main-elb" {
       name_prefix      = "main"
       backend_protocol = "HTTP"
       backend_port     = 80
-      #   target_type      = "alb"
       deregistration_delay = 10
 
       health_check = {
         enabled             = true
         interval            = 30
-        path                = "/"
+        path                = "/readme.html"
         port                = "traffic-port"
         healthy_threshold   = 5
-        unhealthy_threshold = 2
+        unhealthy_threshold = 3
         timeout             = 5
         protocol            = "HTTP"
-        matcher             = "200"
+        matcher             = "200-399"
       }
     }
   ]
@@ -73,6 +79,19 @@ module "main-elb" {
   target_group_tags = {
     name = "main-tg"
   }
+
+  http_tcp_listeners = [
+    {
+      port        = 80
+      protocol    = "HTTP"
+      action_type = "redirect"
+      redirect = {
+        port        = "443"
+        protocol    = "HTTPS"
+        status_code = "HTTP_301"
+      }
+    }
+  ]
 
   https_listeners = [
     {
