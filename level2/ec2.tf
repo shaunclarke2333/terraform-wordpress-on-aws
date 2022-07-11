@@ -50,7 +50,7 @@ data "template_file" "user_data" {
   }
 }
 
-#Module to deploy autoscaling group with launch template and IAM session manager policy
+#Module to deploy autoscaling group with launch template and IAM session manager policy.
 module "main-autoscaling-group" {
   source = "terraform-aws-modules/autoscaling/aws"
 
