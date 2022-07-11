@@ -14,4 +14,4 @@ Used user-data to install WordPress on servers
 
 Load Balancer used to distribute requests across multiple web servers
 
-Route53 along with Amazon Certificate Manager used to connect to the website securely via user-friendly DNS names
+Route53 along with Amazon Certificate Manager used to connect to the website securely(SSL) via user-friendly DNS names
