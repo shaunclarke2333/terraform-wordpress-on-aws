@@ -12,5 +12,5 @@ variable "key_name" {
 
 variable "keys_and_salts" {
   description = "Authentication unique keys and salts"
-  sensitive = true
+  sensitive   = true
 }
