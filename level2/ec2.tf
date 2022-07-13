@@ -40,14 +40,7 @@ module "launch-template-sg" {
 }
 
 data "template_file" "user_data" {
-  template = file("${path.module}/deploy_wordpress_amzlinux.sh.tpl")
-  vars = {
-    database_name = module.mysql-rds.db_instance_name
-    username      = module.mysql-rds.db_instance_username
-    password      = "${local.main-rds-password}"
-    db_host       = module.mysql-rds.db_instance_endpoint
-    unique_keys_salts = var.keys_and_salts
-  }
+  template = file("${path.module}/userdata.sh.tpl")
 }
 
 #Module to deploy autoscaling group with launch template and IAM session manager policy.
@@ -98,5 +91,7 @@ module "main-autoscaling-group" {
   }
   iam_role_policies = {
     AmazonSSMManagedInstanceCore = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+    SecretsManagerReadWrite      = "arn:aws:iam::aws:policy/SecretsManagerReadWrite"
+    AmazonRDSReadOnlyAccess      = "arn:aws:iam::aws:policy/AmazonRDSReadOnlyAccess"
   }
 }
