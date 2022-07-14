@@ -59,7 +59,7 @@ module "main-autoscaling-group" {
   target_group_arns         = module.main-elb.target_group_arns
   force_delete              = true
 
-  # Launch template
+  # Launch template..
   launch_template_name        = "main-launch-template"
   launch_template_description = "Launch template example"
   update_default_version      = true

@@ -1,5 +1,9 @@
 #!/bin/bash
 function get-config() {
+    
+    # aws region environment variable for aws cli
+    export AWS_DEFAULT_REGION=us-east-1;
+
     # installing git
     sudo yum install -y git;
     
