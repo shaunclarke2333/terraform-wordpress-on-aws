@@ -1,6 +1,6 @@
 # terraform-wordpress-on-aws
 
-Using terraform to deploy WordPress on AWS with a LAMP stack.
+Using terraform modules with symlinks to deploy WordPress on AWS with a LAMP stack in multiple environments.
 
 3 tier architecture(web, app and DB).
 
@@ -10,7 +10,7 @@ Database password stored securely with Secrets Manager .
 
 Auto Scaling Group used to provision multiple servers in HA mode.
 
-Used user-data to install WordPress on servers
+Used user-data to install WordPress on servers.
 
 Load Balancer used to distribute requests across multiple web servers
 
