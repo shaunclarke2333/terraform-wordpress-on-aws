@@ -41,7 +41,7 @@ module "launch-template-sg" {
 
 locals {
   description = "domain url"
-  domain = module.elb_friendly_name.domain_name
+  domain      = module.elb_friendly_name.domain_name
 }
 
 data "template_file" "user_data" {
@@ -49,7 +49,7 @@ data "template_file" "user_data" {
 
   vars = {
     env_name = var.env
-    domain = local.domain
+    domain   = local.domain
   }
 }
 

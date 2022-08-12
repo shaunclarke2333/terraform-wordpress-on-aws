@@ -5,5 +5,5 @@ output "acm_certificate_output" {
 
 output "domain_name" {
   description = "This output contains the domain name"
-  value = aws_acm_certificate.certificate.domain_name
+  value       = aws_acm_certificate.certificate.domain_name
 }
