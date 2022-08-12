@@ -11,11 +11,14 @@ function get-config() {
     git clone https://github.com/shaunclarke2333/aws-wordpress-appconfig.git;
 
     #Passing env variable to wordpress deploy bash script
-    sudo sed -i "s/env_name_here/${env_name}/g" aws-wordpress-appconfig/deploy_wordpress_amzlinux.sh;
+    sudo sed -i "s#env_name_here#${env_name}#g" aws-wordpress-appconfig/deploy_wordpress_amzlinux.sh;
+    
+    #Passing domain name variable to wordpress deploy bash script
+    sudo sed -i "s#domain_name_here#${domain}#g" aws-wordpress-appconfig/deploy_wordpress_amzlinux.sh;
 
     # executing wordpress config script
     bash aws-wordpress-appconfig/deploy_wordpress_amzlinux.sh;
 }
 
-#calling function
+#calling function.
 get-config
