@@ -1,4 +1,4 @@
-#Security Group to allow inboound on port 80 and 3306
+#Security Group to allow inboound on port 80 and 3306.
 module "launch-template-sg" {
   source = "terraform-aws-modules/security-group/aws"
 
@@ -39,15 +39,21 @@ module "launch-template-sg" {
   }
 }
 
+locals {
+  description = "domain url"
+  domain = module.elb_friendly_name.domain_name
+}
+
 data "template_file" "user_data" {
   template = file("${path.module}/userdata.sh.tpl")
 
   vars = {
     env_name = var.env
+    domain = local.domain
   }
 }
 
-#Module to deploy autoscaling group with launch template and IAM session manager policy.
+#Module to deploy autoscaling group with launch template and IAM session manager policy
 module "main-autoscaling-group" {
   source = "terraform-aws-modules/autoscaling/aws"
 
