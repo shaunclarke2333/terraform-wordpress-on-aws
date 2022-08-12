@@ -1,6 +1,12 @@
 # terraform-wordpress-on-aws
 
-Using terraform modules with symlinks to deploy WordPress on AWS with a LAMP stack in multiple environments.
+Using terraform modules with symlinks to deploy WordPress on AWS with a LAMP stack in multiple environments(Dev and Prod).
+
+resources are defined in a base directory.
+
+symlinks are then used to point to the same files in the prod and dev directory.
+
+.tfvars files are used to provide the variables for the specific environments.
 
 3 tier architecture(web, app and DB).
 
