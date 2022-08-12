@@ -1,4 +1,4 @@
-# Security group for the main-loab-balancer Allow port 443 TCP inbound to ELB.
+# Security group for the main-loab-balancer Allow port 443 TCP inbound to ELB
 module "alb_443_sg" {
   source = "terraform-aws-modules/security-group/aws"
 
