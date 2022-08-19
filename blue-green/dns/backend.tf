@@ -1,8 +1,8 @@
-# Terraform backend configuration to store state file remotely in S3
+#Terraform backend configuration to store state file remotely in S3
 terraform {
   backend "s3" {
     bucket         = "main-backend-state-bucket"
-    key            = "dev-level4/terraform.tfstate"
+    key            = "dns/terraform.tfstate"
     region         = "us-east-1"
     dynamodb_table = "terraform-state-lock-table"
   }

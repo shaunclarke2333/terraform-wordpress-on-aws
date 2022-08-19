@@ -9,7 +9,7 @@ module "elb_friendly_name" {
   evaluate_target_health = true
 
   # Creating aws ssl certificate.
-  domain_name          = "${var.env}-wordpress.shaunsawslab.link"
+  domain_name          = "*.shaunsawslab.link"
   validation_method    = "DNS"
   certificate_tag_name = "${var.env}main-ssl"
 

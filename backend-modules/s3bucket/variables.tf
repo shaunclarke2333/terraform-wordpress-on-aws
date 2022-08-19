@@ -25,3 +25,4 @@ variable "versioning_mfa_delete" {
 variable "server_side_encryption" {
   description = "variable for server_seide_encryption input"
 }
+
