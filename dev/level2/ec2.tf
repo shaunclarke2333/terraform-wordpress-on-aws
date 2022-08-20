@@ -45,7 +45,7 @@ locals {
 }
 
 data "template_file" "user_data" {
-  template = file("${path.module}/userdata.sh.tpl")
+  template = file("${path.module}/${var.install_script}")
 
   vars = {
     env_name = var.env

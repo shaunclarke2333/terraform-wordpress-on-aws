@@ -8,16 +8,10 @@ function get-config() {
     sudo yum install -y git;
     
     # cloning repo with wordpress config files
-    git clone https://github.com/shaunclarke2333/aws-wordpress-appconfig.git;
-
-    #Passing env variable to wordpress deploy bash script
-    sudo sed -i "s#env_name_here#${env_name}#g" aws-wordpress-appconfig/deploy_wordpress_amzlinux.sh;
-    
-    #Passing domain name variable to wordpress deploy bash script
-    sudo sed -i "s#domain_name_here#${domain}#g" aws-wordpress-appconfig/deploy_wordpress_amzlinux.sh;
+    git clone https://github.com/shaunclarke2333/html_website_deploy.git;
 
     # executing wordpress config script
-    bash aws-wordpress-appconfig/deploy_wordpress_amzlinux.sh;
+    bash html_website_deploy/deploy_html_site.sh;
 }
 
 #calling function.

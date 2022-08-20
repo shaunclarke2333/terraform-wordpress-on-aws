@@ -24,6 +24,8 @@ module "main-s3bucket" {
   versioning_enabled     = true
   versioning_mfa_delete  = false
   server_side_encryption = "AES256"
+
+  bucket_folders = var.bucket_folders
 }
 
 # Dynamodb table to use for terraform state locking
