@@ -18,7 +18,7 @@ provider "aws" {
 module "cname_pointer" {
   source        = "../modules/route53"
   zone_id       = data.aws_route53_zone.shaunsawslabzone.id
-  record_name   = "wordpress.shaunsawslab.link"
+  record_name   = "blue-green.shaunsawslab.link"
   record_type   = "CNAME"
   cname_ttl     = 2
   cname_records = ["${var.live_env}"]

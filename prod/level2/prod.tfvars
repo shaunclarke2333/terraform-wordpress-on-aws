@@ -1,1 +1,2 @@
-env = "prod"
+env            = "prod"
+install_script = "/userdata.sh.tpl"

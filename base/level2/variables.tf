@@ -14,3 +14,8 @@ variable "key_name" {
 variable "env" {
   description = "input variable for environment name"
 }
+
+# variable for environment name
+variable "install_script" {
+  description = "input variable for install_script"
+}

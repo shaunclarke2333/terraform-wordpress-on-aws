@@ -1,1 +1,1 @@
-live_env = "prod-wordpress.shaunsawslab.link"
+live_env = "prod.shaunsawslab.link"
